@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking System</title>
+</head>
+<body>
+    <h1>Welcome to Event Booking System</h1>
+
+    <!-- Add Event Form -->
+    <h2>Add New Event</h2>
+    <form action="/add_event" method="post">
+        <label for="event_name">Event Name:</label>
+        <input type="text" id="event_name" name="event_name" required><br><br>
+
+        <label for="event_date">Event Date:</label>
+        <input type="date" id="event_date" name="event_date" required><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <input type="submit" value="Add Event">
+    </form>
+
+    <br>
+    <a href="/events">View All Events</a>
+
+        <!-- Search Events by Location Form -->
+        <h2>Search Events by Location</h2>
+        <form action="/search_by_location" method="get">
+            <label for="search_location">Enter Location:</label>
+            <input type="text" id="search_location" name="location" required><br><br>
+            
+            <input type="submit" value="Search Events">
+        </form>
+</body>
+</html>

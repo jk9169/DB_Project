@@ -1,0 +1,16 @@
+# 가상환경 폴더
+venv/
+
+# Python 캐시 파일
+__pycache__/
+*.pyc
+
+# 로그 파일
+*.log
+
+# 환경 설정 파일 (예: IDE, OS 관련)
+.idea/
+.vscode/
+
+# 테스트 파일
+*.sqlite

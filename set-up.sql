@@ -19,3 +19,18 @@ CREATE TABLE tickets (
     FOREIGN KEY (event_id) REFERENCES events (event_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
+INSERT INTO events (event_id, event_name, event_date, location)
+VALUES 
+(8, "Eras", "2024-12-18", "Bridgewater"), 
+(9, "Bruins", "2024-12-12", "TDGarden");
+
+INSERT INTO users (user_id, username, email)
+VALUES 
+(1, "someone123", "someone123@gmail.com"), 
+(2, "dasher87", "dasher87@gmail.com");
+
+INSERT INTO tickets (ticket_id, event_id, user_id, ticket_count)
+VALUES 
+(1, 6, 2, 3), 
+(2, 9, 1, 4);

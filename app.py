@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 DATABASE = 'database/event_booking.db'
@@ -17,6 +17,26 @@ def events():
     events = conn.execute('SELECT * FROM events').fetchall()
     conn.close()
     return render_template('events.html', events=events)
+
+# Add new event route
+@app.route('/add_event', methods=['POST'])
+def add_event():
+    # Get form data
+    event_name = request.form['event_name']
+    event_date = request.form['event_date']
+    location = request.form['location']
+    
+    # Insert data into the database
+    conn = get_db_connection()
+    conn.execute(
+        'INSERT INTO events (event_name, event_date, location) VALUES (?, ?, ?)',
+        (event_name, event_date, location)
+    )
+    conn.commit()
+    conn.close()
+    
+    # Redirect to home after adding the event
+    return redirect(url_for('home'))
 
 # Search route - based on location
 @app.route('/search_by_location', methods=['GET'])

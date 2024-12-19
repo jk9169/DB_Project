@@ -1,6 +1,7 @@
 # DB_Project
 
 DB_Project
+Jegeun Lee, Sterling Macleod, Thomas Roch
 
 This program is designed to help you create, manage, and view upcoming events effortlessly. It offers the following features:
 

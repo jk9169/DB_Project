@@ -13,14 +13,16 @@
                 <th>Event Name</th>
                 <th>Event Date</th>
                 <th>Location</th>
+                <th>Tickets</th>
             </tr>
         </thead>
         <tbody>
             {% for event in events %}
                 <tr>
-                    <td>{{ event['event_name'] }}</td>
+                    <td>{{ event['event_name'] }}</td> 
                     <td>{{ event['event_date'] }}</td>
                     <td>{{ event['location'] }}</td>
+                    <td>{{ event[ 'ticket_count' ] }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -18,6 +18,13 @@ def events():
     conn.close()
     return render_template('events.html', events=events)
 
+@app.route('/users', methods=['GET'])
+def users():
+    conn = get_db_connection()
+    users = conn.execute ('SELECT username, email FROM users').fetchall()
+    conn.close
+    return render_template('users.html', users = users)
+
 # Add new event route
 @app.route('/add_event', methods=['POST'])
 def add_event():
@@ -39,13 +46,13 @@ def add_event():
     return redirect(url_for('home'))
 
 # Search route - based on location
-@app.route('/search_by_location', methods=['GET'])
+@app.route('/search_by_location', methods=['GET']) 
 def search_by_location():
     location = request.args.get('location')  # Location entered by the user
     conn = get_db_connection()
     
     # Search events based on location
-    events = conn.execute('SELECT * FROM events WHERE location LIKE ?', ('%' + location + '%',)).fetchall()
+    events = conn.execute('SELECT event_name, event_date, location, ticket_count FROM events INNER JOIN tickets USING (event_id) WHERE location LIKE ?', ('%' + location + '%',)).fetchall()
     conn.close()
     
     return render_template('events.html', events=events, location=location)

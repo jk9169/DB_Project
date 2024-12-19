@@ -171,3 +171,6 @@ VALUES
 (48, 48, 28, 9),
 (49, 43, 40, 6),
 (50, 40, 22, 4);
+
+SELECT event_name, event_date, location, SUM(ticket_count) AS ticket_total FROM events INNER JOIN tickets USING (event_id) WHERE location LIKE 'Buffalo';
+SELECT * FROM events INNER JOIN tickets USING (event_id);
